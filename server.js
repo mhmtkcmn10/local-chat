@@ -5,7 +5,7 @@ const socketIo = require('socket.io');
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
-
+const config = require('./config.json');
 const app = express();
 
 // SSL Sertifikası oluşturma (otomatik)
@@ -190,7 +190,7 @@ async function startServer() {
     });
 
     // GÜVENLİK AYARLARI
-    const MASTER_KEY = 'MySecureKey2024!';
+    const MASTER_KEY = config.MASTER_KEY;
     const SESSION_KEYS = new Map();
     const USER_SALTS = new Map();
     const CONNECTION_ATTEMPTS = new Map();
